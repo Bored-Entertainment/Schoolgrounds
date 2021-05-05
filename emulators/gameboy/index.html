@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>    
+    <title>Gameboy - Schoolgrounds</title>
+    <meta name="Author" content="rafaelcastrocouto" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="content-script-type" content="text/javascript" />    
+    <meta http-equiv="content-style-type" content="text/css" />
+    <link href="style.css" rel="stylesheet" type="text/css" /> 
+    <link href="jquery.minicolors.css" rel="stylesheet" type="text/css" /> 
+    <style id="gbstyle"> #gameboy { transform: scale(1); } </style>
+  </head>
+  <body>    
+    <a href="../../">Schoolgrounds</a>
+    <div id="ui" class="drag">
+      <b class="handle">+</b>
+      <b>Games</b>
+      <div class="game-list">
+        <div class="cartridge" value="megaman" title="Megaman"><img src="img/megaman.jpg"></div>
+        <div class="cartridge" value="marioland" title="Mario Land"><img src="img/marioland.jpg"></div>
+        <div class="cartridge" value="tetris" title="Tetris"><img src="img/tetris.jpg"></div>
+        <div class="cartridge" value="drmario" title="Dr. Mario"><img src="img/drmario.jpg"></div>
+        <div class="cartridge" value="bomberman" title="Bomberman"><img src="img/bomberman.jpg"></div>
+        <div class="cartridge" value="kirbys" title="Kirby's Dream Land"><img src="img/kirbys.jpg"></div>
+        <div class="cartridge" value="space_invaders" title="Space Invaders"><img src="img/space_invaders.jpg"></div>
+        <div class="cartridge" value="motocross" title="Motocross Maniacs"><img src="img/motocross.jpg"></div>
+        <div class="cartridge" value="bombjack" title="Bomb Jack"><img src="img/bombjack.jpg"></div>
+        <div class="cartridge" value="bubble_ghost" title="Bubble Ghost"><img src="img/bubble_ghost.jpg"></div>
+        <div class="cartridge" value="boxxle2" title="Boxxle 2"><img src="img/boxxle2.jpg"></div>
+        <div class="cartridge" value="dropzone" title="Drop Zone"><img src="img/dropzone.jpg"></div>
+        <div class="cartridge" value="castelian" title="Castelian"><img src="img/castelian.jpg"></div>
+        <div class="cartridge" value="serpent" title="Serpent"><img src="img/serpent.jpg"></div>
+        <div class="cartridge" value="centipede" title="Centipede"><img src="img/centipede.jpg"></div> 
+      </div>
+      <div class="CLR">        
+        <b>Controls</b>
+        <div id="IB" title="Click to customize">
+          <p>Left: <span id="left-input">&larr;</span></p>
+          <p>Right: <span id="right-input">&rarr;</span></p>
+          <p>Up: <span id="up-input">&uarr;</span></p>
+          <p>Down: <span id="down-input">&darr;</span></p>
+          <p>Button A: <span id="a-input">X</span></p>
+          <p>Button B: <span id="b-input">Z</span></p>
+          <p>Start: <span id="start-input">A</span></p>
+          <p>Select: <span id="select-input">S</span></p>
+        </div>
+      <input id="BP" type="button" value="Pause" disabled/>
+      <input id="BST" type="button" value="Step" onclick="gb_Step();"/>
+      <input id="BS" type="button" value="Reset" disabled/>
+      <b>Zoom</b>
+      <input id="BX" type="range" name="zoom" min="1" max="500" value="100" disabled>
+      </div>
+      <div id="STATUS">Pause</div>
+      <input id="TOGGLE_DEBUGGER" type="checkbox" onclick="gb_Toggle_Debugger(this.checked);" />
+      <label id="TOGGLE_DEBUGGER_LABEL" for="TOGGLE_DEBUGGER">debugger</label>
+      <div id="DEBUGGER"></div>
+      <div id="DEBUG">&nbsp;</div>
+      <b>Colors</b>
+      Top: <input type="hidden" id="top" data-opacity="1" class="color" value="#ADB6B3">
+      Bottom: <input type="hidden" id="bot" data-opacity="1" class="color" value="#BEC2C1">
+    </div>    
+    <div id="container" class="drag">           
+      <div id="gameboy">
+        <div class="power"></div>
+        <hr class="l-1">
+        <hr class="l-2">
+        <hr class="l-3">
+        <hr class="l-4">
+        <hr class="l-5">
+        <hr class="l-6">
+        <hr class="l-7">
+        <hr class="l-8">
+        <p>dot matrix whith stereo sound</p>
+        <div class="reflex handle">
+          <div class="LCDdisplay"></div>
+          <canvas id="LCD" width="160" height="144"></canvas>
+          <span class="diod"></span>   
+        </div>
+        <ul class="buttons">
+          <li class="A_button"><span>A</span></li>
+          <li class="B_button"><span>B</span></li>
+        </ul>
+        <ul class="buttons-2">
+          <li class="select"><span>SELECT</span></li>
+          <li class="start"><span>START</span></li>
+        </ul>
+        <ul class="speacker"><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+        <div class="stick">
+          <ul class="left"><li></li><li></li><li></li><li></li><li></li></ul>
+          <ul class="right"><li></li><li></li><li></li><li></li><li></li></ul>
+          <ul class="circle"><li></li></ul>
+          <ul class="up"><li></li><li></li><li></li><li></li><li></li></ul>
+          <ul class="down"><li></li><li></li><li></li><li></li><li></li></ul>    
+        </div>      
+      </div>      
+      <div id="load">
+        <div id="back"></div>
+        <div id="border"></div>
+        <div id="card3"></div>
+        <div id="card2"></div>
+        <div id="chip2"></div>
+        <div id="screenBack"></div>
+        <div id="card1"></div>
+        <div id="speaker"></div>
+        <div id="chip"></div>
+        <div id="chipPinL"></div>
+        <div id="chipPinR"></div>
+        <div id="ec1"></div>
+        <div id="volumeWheelBack"></div>
+        <div id="volumeWheel"></div>
+        <div id="joystickBack"></div>
+        <div id="buttonsABBack"></div>
+        <div id="buttonsSSBack"></div>
+        <div id="jackBack"></div>
+        <div id="jack"></div>
+        <div id="ec2"></div>
+        <div id="powerBack"></div>
+        <div id="power"></div>
+        <div id="box"></div>
+        <div id="screen"></div>
+        <div id="screen2"></div>
+        <div id="joystickCross1"></div>
+        <div id="joystickCross2"></div>
+        <div id="buttonsSS"></div>
+        <div id="buttonsAB"></div>
+        <div id="powerLed"></div>
+        <div id="speakerFilter"></div>
+      </div>      
+    </div>    
+    <script src="prefixfree.min.js"></script>
+    <script src="jquery.js"></script>
+    <script src="jquery.minicolors.js"></script>
+    <script src="emulator.js"></script>    
+  </body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Schoolgrounds By Students For Students</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../bootstrap/bootstrap.bundle.min.js"></script>
+    <link href="../bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../default.css" media="screen" />
+    <!--Favicon Information-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png?v=2bAXkRLXOR">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png?v=2bAXkRLXOR">
+    <link rel="icon" type="image/png" sizes="192x192" href="../favicon/android-chrome-192x192.png?v=2bAXkRLXOR">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png?v=2bAXkRLXOR">
+    <link rel="manifest" href="../favicon/site.webmanifest?v=2bAXkRLXOR">
+    <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg?v=2bAXkRLXOR" color="#bd8b40">
+    <link rel="shortcut icon" href="../favicon/favicon.ico?v=2bAXkRLXOR">
+    <meta name="msapplication-TileColor" content="#da9835">
+    <meta name="msapplication-TileImage" content="../favicon/mstile-144x144.png?v=2bAXkRLXOR">
+    <meta name="msapplication-config" content="../favicon/browserconfig.xml?v=2bAXkRLXOR">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Schoolgrounds ">
+    <meta name="description" content="By Students For Students">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Schoolgrounds">
+    <meta property="og:description" content="By Students For Students">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Schoolgrounds">
+    <meta property="twitter:description" content="By Students For Students">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark" aria-label="Fourth navbar example">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../">Schoolgrounds</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExample04">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">Games</a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdown">
+                            <li><a class="dropdown-item" href="../games/">Games</a></li>
+                            <li><a class="dropdown-item" href="../other/flashgames/">Flash Games</a></li>
+                            <li><a class="dropdown-item" href="../other/retro/">Retro</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../other/gameofweek/">Game Of The Week</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../other/links/">Links</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../other/theportal/">The Portal</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../videos/">Videos</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+
+                <a class="home" href="../">
+                    <h1>Schoolgrounds</h1>
+                </a>
+                <h2>By Students For Students</h2>
+
+                <div class="search-container">
+                    <input type="text" id="gameFinder" onkeyup="gameFinder()" placeholder="Search for Games" title="Type in a game">
+                    <script>
+                        function gameFinder() {
+                            var input, filter, ul, li, a, i, txtValue;
+                            input = document.getElementById("gameFinder");
+                            filter = input.value.toUpperCase();
+                            ul = document.getElementById("Games");
+                            li = ul.getElementsByTagName("li");
+                            for (i = 0; i < li.length; i++) {
+                                a = li[i].getElementsByTagName("a")[0];
+                                txtValue = a.textContent || a.innerText;
+                                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                    li[i].style.display = "";
+                                } else {
+                                    li[i].style.display = "none";
+                                }
+                            }
+                        }
+                    </script>
+                </div>
+
+                <div class="Games" id="Games">
+                    <h2>Flash Games:</h2>
+                    <ul>
+                        <li><a href="minecraft/" class="comic">Minecraft Flash Edition</a></li>
+                        <li><a href="btd/">Bloons Tower Defense</a></li>
+                        <li><a href="desktoptd/">Desktop Tower Defense</a></li>                        
+                        <li><a class="sad" href="burrito_bision/">Burrito Bison (Currently Doesn't Work :( )</a></li>
+                        <li><a href="achievement_unlocked_">Achievement Unlocked</a></li>
+                        <ul>
+                            <li><a href="achievement_unlocked_achievementunlocked1/">Achievement Unlocked 1</a></li>
+                            <li><a class="sad" href="achievement_unlocked_achievementunlocked2/">Achievement Unlocked 2 (Currently Doesn't Work :( )</a></li>
+                            <li><a class="sad" href="achievement_unlocked_achievementunlocked3/">Achievement Unlocked 3 (Currently Doesn't Work :( )</a></li>
+                        </ul>
+                        <li><a href="tetris/">Tetris</a></li>
+                        <li><a href="sm63/">Super Mario 63</a></li>
+                        <li><a href="RiddleSchool/">Riddle Schools</a></li>
+                        <ul>
+                            <li><a href="RiddleSchool/RiddleSchool1/">Riddle School 1</a></li>
+                            <li><a href="RiddleSchool/RiddleSchool2/">Riddle School 2</a></li>
+                            <li><a href="RiddleSchool/RiddleSchool3/">Riddle School 3</a></li>
+                            <li><a href="RiddleSchool/RiddleSchool4/">Riddle School 4</a></li>
+                            <li><a href="RiddleSchool/RiddleSchool5/">Riddle School 5</a></li>
+                            <li><a href="RiddleSchool/RiddleTransfer/">Riddle Transfer (a.k.a Riddle School 6)</a></li>
+                            <li><a href="RiddleSchool/RiddleTransfer2/">Riddle Transfer 2 (a.k.a Riddle School 7)</a></li>
+                        </ul>
+                        <li><a href="portalflash/">Portal Flash Version</a></li>
+                        <li><a href="alienhominid/">Alien Hominid</a></li>
+                        <li><a href="WorldHardestGame/">The World's Hardest Game</a></li>
+                        <li><a href="henrystikmin/breakingthebank/">Breaking The Bank</a></li>
+                        <li><a href="henrystikmin/escapingtheprison/">Escaping The Prison</a></li>
+                        <li><a href="linerider/linerider2/">Line Rider 2</a></li>
+                        <li><a href="bloxors/">Bloxorz</a></li>
+                        <li><a href="iq/">Impossible Quiz</a></li>
+                        <li><a href="bbs/">Bang Boom Splat!</a></li>
+                        <li><a href="adg/">Action Driving Game</a></li>
+                        <li><a href="pacman/">PAC-MAN</a></li>
+                        <li><a href="winmister/">Windows Mister</a></li>
+                        <li><a href="super-smash-flash/">Super Smash Flash</a></li>
+                        <li><a href="galaga/">Galaga</a></li>
+                        <li><a href="bowman/">Bow Man</a></li>
+                        <li><a href="xtractpaperclip/">X-Tract Paperclip</a></li>
+                        <li><a href="mariocombat/">Mario Combat</a></li>
+                        <li><a href="DuckLife/">Duck Lifes</a></li>
+                        <ul>
+                            <li><a href="DuckLife/DuckLife1/">Duck Life 1</a></li>
+                            <li><a href="DuckLife/DuckLife2/">Duck Life 2</a></li>
+                            <li><a href="DuckLife/DuckLife3/">Duck Life 3</a></li>
+                        </ul>
+                        <li><a href="escapethegame/">Escape The Game</a></li>
+                        <li><a href="meatboy/">Super Meat Boy</a></li>
+                        <li><a href="ngr/">Newgrounds Rumble</a></li>
+                        <li><a href="ngr/">Pokemon Flash</a></li>
+                    </ul>
+                    <h2 class="pixel">DOS Games</h2>
+                    <ul>
+                        <li><a class="pixel" href="../dosbox/?soft=DOOM">Doom</a></li>
+                        <li><a class="pixel" href="../dosbox/?soft=DOOM2">Doom II: Hell on Earth</a></li>
+                        <li><a class="pixel" href="../dosbox/?soft=WOLF3D">Wolfenstien 3D Demo</a></li>
+                        <li><a class="pixel" href="../dosbox/?soft=OREGON">Oregon Trail</a></li>
+                        <li><a class="pixel" href="../dosbox/?soft=DUKE3D">Duke Nukem 3D Demo</a></li>
+                        <li><a class="pixel" href="../dosbox/?soft=DAGLITE">The Elder Scrolls: Daggerfall Demo</a></li>
+                        <li><a class="pixel" href="../dosbox/?soft=WAR1">Warcraft: Orcs & Humans Demo</a></li>
+                        <li><a class="pixel" href="../dosbox/?soft=KQ1">King's Quest</a></li>
+                        <li><a class="pixel" href="../dosbox/?soft=MTT">MARIO TEACHES TYPING (lol)</a></li>
+                        <li><a class="pixel" href="../dosbox/?soft=DK">Donkey Kong</a></li>
+                        <li><a class="pixel" href="../dosbox/?soft=MB">Mario Bros.</a></li>
+                        <li><a class="pixel" href="../dosbox/?soft=MGG">Mario Game Gallery</a></li>
+                        <li><a class="pixel" href="../dosbox/?soft=TTE">Thomas The Tank Engine</a></li>
+                    </ul>
+                    <h2 class="pixel">Emulators</h2>
+                    <ul>
+                        <li><a class="pixel" href="../emulators/gameboy">Gameboy</a></li>
+                        <li><a class="pixel" href="../emulators/atari-gameroom/">Atari Gameroom</a></li>
+                        <li><a class="pixel" href="../emulators/emulatrix/" class="pixel">Emulatrix</a></li>
+                        <li><a class="pixel" href="../emulators/nintendrust/" class="pixel">Nintendrust Entertainment System</a></li>
+                        <li><a class="pixel" href="../emulators/nintendrust/" class="pixel">Nintendrust Entertainment System (Multiplay)</a></li>
+                        <li><a class="pixel" href="../emulators/webretro/">WebRetro (RetroArch Web)</a></li>
+                    </ul>
+                    <h2 class="pixel">MISC. Games</h2>
+                    <ul>
+                        <li><a href="mari0/" class="pixel">Mari0 - Mario With A Portal Gun</a></li>
+                        <li><a href="thereisnogame/" class="pixel">There Is No Game</a></li>
+                        <li><a href="2048/" class="pixel">2048</a></li>
+                        <li><a href="cookieclicker/" class="pixel">Cookie Clicker</a></li>
+                        <li><a href="mcclone1/" class="pixel">Bad Minecraft</a></li>
+                        <li><a href="solitude/" class="pixel">Solitude</a></li>
+                        <li><a href="minesweeper/" class="pixel">Minesweeper</a></li>
+                        <li><a href="minecraftjs/" class="pixel">Minecraft JS Edition</a></li>
+                        <li><a href="gdash/" class="pixel">Geometry Dash</a></li>
+                        <li><a href="xx142-b2exe/" class="pixel">XX142-B2EXE</a></li>
+                        <li><a href="marioclone/" class="pixel">SMB1 CLONE</a></li>
+                        <li><a href="sansfight/" class="pixel">Sans Fight</a></li>
+                    </ul>
+                </div>
+
+                <p>Huge Thanks To <a href="../other/people/pisaucer/">PiSaucer</a> (I Stole Your Files from your <a href="http://pisaucer.github.io/boredhtml/" target="_blank">website</a> :) )</p>
+                <footer>
+                    <p>ok boomer</p>
+                    <p>Blam this plz!!!1111!!!</p>
+                    <p>*May Not Work At all schools</p>
+                    <p>I own none of these games this is so students can play stuff unblocked at school :)</p>
+                    <a href="../other/changelog/">Changelog</a>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

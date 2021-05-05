@@ -1,0 +1,1593 @@
+@font-face {
+  font-family: 'Squada One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Squada One'), local('SquadaOne-Regular'), url('Squada One.woff') format('woff');
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+html, body {
+  height: 100%;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 1;
+  background: url(img/gameboy-bkg.jpg);
+  background-attachment:fixed;
+  background-size: auto 100%;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+body, input, select {
+  font-family: monospace;
+}
+.game-list {
+  border: 1px solid #444;
+  overflow: auto;
+  box-shadow: 0 0 6px black inset;
+  width: 180px; height: 180px;
+  padding: 10px; padding-bottom: 80px;
+  transition: all 0.2s;
+}
+.game-list:hover {
+  height: 340px;
+}
+.cartridge {
+  cursor: pointer;
+  background: url(img/cartridge.png);
+  background-size: 100%;
+  width: 156px; height: 178px;
+  transition: all 0.2s;
+  transform: scale(0.9) rotate(6deg);
+  margin-bottom: 10px;
+}
+
+.cartridge:hover, .cartridge.active {
+  -webkit-filter: brightness(1.2);
+  filter: brightness(1.2);
+  background-color: rgba(255,255,255,0.2);
+  box-shadow: 0 0 6px rgba(255,255,255,0.2);
+  transform: scale(1);
+}
+
+.cartridge > img {
+  margin-top: 50px;
+  margin-left: 30px;
+}
+
+#container {
+  position: relative;
+  float: left;
+  height: 500px;
+  width: 324px;
+}
+#gameboy {
+  position: absolute;
+  width: 265px;
+  height: 433px;
+  margin: 2em;
+  border: 2px solid rgb(153, 153, 153);
+  border-radius: 10px 10px 77px;
+  background-image: -webkit-linear-gradient( #ADB6B3, #BEC2C1 50%);
+  background-image: linear-gradient( #ADB6B3, #BEC2C1 50%);
+  box-shadow: 5px 6px 20px rgba(0, 0, 0, 0.37),
+    -21px 17px 65px rgba(0, 0, 0, 0.46),
+    inset -3px 0 4px rgba(0,0,0,0.3),
+    inset -7px 0 7px rgba(255,255,255,0.3),
+    inset 1px 0 3px rgba(0,0,0,0.1),
+    inset 3px 0 10px rgba(0,0,0,0.3),
+    inset 0 3px 7px rgba(0,0,0,0.5),
+    inset 0 4px 10px white;
+  animation: gameboyAnim 5s;
+  opacity: 1;
+  z-index: 1;
+}
+
+@keyframes gameboyAnim {
+  0% {
+    opacity: 0;
+  }
+  65% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#ui #DEBUGGER,
+#ui #STATUS,
+#ui #TOGGLE_DEBUGGER,
+#ui #TOGGLE_DEBUGGER_LABEL,
+#ui #BST,
+#ui #BS {
+  display: none;
+}
+
+#ui {
+  color: white;
+  text-shadow: 0 1px 1px black;
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+  float: left;
+  border-radius: 0.5em 0.5em 3em;
+  background: rgba(0,0,0,0.3);
+  display: inline-block;
+  padding: 1em;
+  margin: 1em;
+}
+
+#ui input, #ui b {
+  display: block;
+  padding: 4px;
+}
+b.handle {
+  color: black;
+  opacity: 0.2;
+  float: right;
+  padding: 0;
+  line-height: 10px;
+  text-shadow: 1px -1px 0 #fff;
+}
+#ui b {
+  font-family: 'Squada One';
+  font-size: 22px;
+}
+
+#ui input {
+  width: 13em;
+}
+
+#IB {
+  height: 80px;
+  column-count: 2;
+  column-rule-width: 0;
+}
+
+#IB > p {
+  cursor: pointer;
+  padding: 2px;
+}
+
+#IB > p:hover {
+  color: #fbb;
+}
+
+#IB > p.press {
+  color: #f44;
+}
+
+#load {
+  position: absolute;
+  width: 130px;
+  height: 220px;
+  top: 120px; left: 100px;
+  transform: scale(2.1);
+  animation: loadAnim 5s;
+  z-index: 0;
+}
+
+
+#gameboy p {
+  position: absolute;
+  top: 45px;
+  left: 70px;
+  z-index: 2;
+  color: rgba(255, 255, 255, 0.63);
+  text-transform: uppercase;
+  font-size: 7px;
+  font-family: "Arial";
+}
+
+.power {
+  background-color: #494949;
+  border-radius: 8px 8px 0 0 / 4px 4px 0 0;
+  width: 16px;
+  height: 5px;
+  position: absolute;
+  left: 31px;
+  top: -6px;
+}
+
+.reflex {
+  position: relative;
+  top: 36px;
+  left: 15px;
+  overflow: hidden;
+  width: 232px;
+  height: 177px;
+  border-top: 1px solid #3D4844;
+  border-right: 1px solid #3D4844;
+  border-bottom: 1px solid #1D2120;
+  border-left: 2px solid rgba(29, 33, 32, 0.57);
+  border-radius: 10px 10px 53px;
+  background: #485055;
+  box-shadow: inset 0 1px 1px #AAB3B0,
+    0 1px 0 #5B5E63,
+    0 2px 0 #EBEBEB,
+    1px 0 2px #D3D3D3,
+    -1px 0 2px #CFCFCF,
+    inset -1px 0 2px rgba(255, 255, 255, 0.44);
+}
+
+
+.display {
+  position: absolute;
+  z-index: 3;
+  width: 232px;
+  height: 177px;
+  border-radius: 10px 10px 53px;
+  background-image: -webkit-linear-gradient(46deg, #485055, rgba(143, 151, 156, 0.91) 80%);
+  background-image: linear-gradient(46deg, rgba(72, 80, 85, 0), rgba(143, 151, 156, 0.58) 80%);
+}
+
+.l-1 {
+  position: absolute;
+  top: 11px;
+  width: 265px;
+  height: 3px;
+  border: none;
+  border-radius:  50px;
+  background-image: -webkit-linear-gradient( #87908D,#A9B2AF  90%);
+  background-image: linear-gradient( #87908D,#A9B2AF  90%);
+  opacity: .6;
+}
+
+.l-2 {  position: absolute;
+  top: -8px;
+  left: 20px;
+  width: 3px;
+  height: 19px;
+  border: none;
+  border-radius: 5px 5px 0 0;
+  background-image: -webkit-linear-gradient( #A9B2AF,#87908D 90%);
+  background-image: linear-gradient( #A9B2AF,#87908D 90%);
+  opacity: .6;
+}
+
+.l-3 {  position: absolute;
+  top: -8px;
+  right: 20px;
+  width: 3px;
+  height: 19px;
+  border: none;
+  border-radius: 5px 5px 0 0;
+  background-image: -webkit-linear-gradient( #A9B2AF,#87908D 90%);
+  background-image: linear-gradient( #A9B2AF,#87908D 90%);
+  opacity: .6;
+}
+
+.LCDdisplay {
+  position: absolute;
+  top: 21px;
+  left: 40px;
+  z-index: 2;
+  width: 160px;
+  height: 144px;
+  border-top: 1px solid #394b21;
+  border-right: 1px solid #36472f;
+  background: #5f953d;
+  box-shadow: inset -1px 2px 6px #2a421a;
+  opacity: 0.4;
+}
+
+#LCD {
+  position: absolute;
+  top: 21px;
+  left: 40px;
+}
+
+.start:hover,
+.pause:hover {
+  cursor: pointer;
+}
+
+.diod {
+  position: absolute;
+  top: 61px;
+  left: 12px;
+  display: block;
+  width: 9px;
+  height: 9px;
+  border: 1px solid #AC774D;
+  border-radius: 50px;
+  background: #E4B443;
+  box-shadow: 0 0 5px #AC774D,
+    -1px 1px 1px rgba(83, 53, 41, 0.99),
+    inset 0 1px 2px #FCB251;
+}
+
+.buttons {
+  position: absolute;
+  top: 242px;
+  left: 179px;
+  padding: 6px;
+  border-radius: 50px;
+  box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.21),
+    inset 0 12px 22px rgba(0, 0, 0, 0.12);
+  transform: rotate(64deg);
+}
+
+.buttons li {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(68, 32, 54, 1);
+  border-radius: 100%;
+  background-image: -webkit-linear-gradient( 6deg,rgba(133, 50, 108, 0.61),#6D1851 89%);
+  background-image: linear-gradient( 6deg,rgba(133, 50, 108, 0.61),#6D1851 89%);
+  box-shadow: inset 1px 2px 4px #A87493,
+    -1px -1px 2px #000000,
+    3px 6px 7px rgba(125, 136, 134, 0.79);
+}
+
+.buttons li:first-child {
+  margin-bottom: 17px;
+}
+
+.buttons li span {
+  transform: rotate(-90deg) translate(-8px,40px) scaleY(0.5);
+}
+
+.buttons li span, .buttons-2 li span {
+  font-family: 'Squada One';
+  position: absolute;
+  color: #666;
+}
+
+.buttons-2 {
+  position: absolute;
+  top: 348px;
+  left: 103px;
+  transform: rotate(64deg);
+}
+
+.buttons-2 li {
+  cursor: pointer;
+  position: absolute;
+  width: 9px;
+  height: 34px;
+  border-radius: 50px;
+  background-image: -webkit-linear-gradient(269deg, #6F7875, #9B9B9B 71%);
+  background-image: linear-gradient(269deg, #6F7875, #9B9B9B 71%);
+  box-shadow: 1px 1px 1px rgba(226, 226, 226, 0.97),
+    -1px -1px 2px #767A79,
+    inset 1px 1px 1px #A3ACA9;
+}
+
+.buttons-2 li:last-child {
+  position: absolute;
+  bottom: 7px;
+  left: 20px;
+}
+
+.buttons-2 li span {
+  transform: rotate(-90deg) translate(-8px,0) scaleY(0.5);
+}
+
+.speacker {
+  position: absolute;
+  top: 344px;
+  left: 174px;
+  transform: rotate(64deg);
+}
+
+.speacker li {
+  margin-bottom: 8px;
+  width: 42px;
+  height: 6px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.7),
+    inset 2px 1px 3px #5B5A53,
+    inset 1px -1px black;
+}
+
+.stick {
+  position: absolute;
+  top: 252px;
+  left: 14px;
+  width: 93px;
+  height: 93px;
+  border-radius: 50%;
+  box-shadow: inset -7px 10px 22px rgba(255,255,255,0.3),
+    inset 7px -10px 22px rgba(0,0,0,0.3);
+}
+.stick ul {
+  cursor: pointer;
+}
+.up {
+  position: absolute;
+  top: 15px;
+  left: 34px;
+  width: 24px;
+  height: 21px;
+  border-radius: 2px 2px 0 0;
+  background: #282C2B;
+  background-image: -webkit-linear-gradient(90deg, #282C2B, #808382 119%);
+  background-image: linear-gradient(90deg, #282C2B, #9B9B9B 119%);
+  box-shadow: 1px -1px 1px rgb(53, 53, 53),
+    -4px 2px 7px rgba(96, 99, 98, 0.64);
+}
+
+.up li {
+  margin: 2px;
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: #353837;
+  box-shadow: inset 0 -1px 1px #494C4B;
+}
+
+.right {
+  position: absolute;
+  top: 36px;
+  left: 56px;
+  width: 24px;
+  height: 22px;
+  border-radius: 2px 2px 0 0;
+  background: #282C2B;
+  background-image: -webkit-linear-gradient(303deg, #282C2B, #9B9B9B 111%);
+  background-image: linear-gradient(303deg, #282C2B, #9B9B9B 111%);
+  box-shadow: -1px -1px 1px rgb(53, 53, 53);
+  transform: rotate(90deg);
+}
+
+.right li {
+  margin: 2px;
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: #353837;
+  box-shadow: inset 0 -1px 1px #494C4B;
+}
+
+.down {
+  position: absolute;
+  top: 58px;
+  left: 34px;
+  width: 24px;
+  height: 21px;
+  border-radius: 0 0 2px 2px ;
+  background: #282C2B;
+  background-image: -webkit-linear-gradient(55deg, #131716, #6A706F 147%);
+  background-image: linear-gradient(55deg, #131716, #6A706F 147%);
+  box-shadow: -5px 0 6px #606362;
+}
+
+.down li {
+  margin: 2px;
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: #050908;
+  box-shadow: inset 0 -1px 1px #343839;
+}
+
+.left {
+  position: absolute;
+  top: 36px;
+  left: 12px;
+  
+  z-index: 2;
+  width: 24px;
+  height: 22px;
+  border-radius: 0 0 2px 2px;
+  background: #282C2B;
+  background-image: -webkit-linear-gradient(290deg, #131716, #6A706F 173%);
+  background-image: linear-gradient(290deg, #131716, #6A706F 173%);
+  box-shadow: 2px 3px 7px rgb(53, 53, 53);
+  transform: rotate(90deg);
+}
+
+.left li {
+  margin: 2px;
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: #050908;
+  box-shadow: inset 0 -1px 1px #343839;
+}
+
+.circle {
+  position: absolute;
+  top: 36px;
+  left: 35px;
+  z-index: 5;
+  width: 22px;
+  height: 22px;
+  background-image: -webkit-linear-gradient( -134deg,#656666, #2E3231 60%);
+  background-image: linear-gradient( -134deg,#656666, #2E3231 60%);
+}
+
+.circle li {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border: 1px solid rgba(39, 42, 41, 0.91);
+  border-radius: 16px;
+  background: #4B4E4D;
+  box-shadow: inset 2px -1px 8px #868787,
+    inset 3px -1px 10px black;
+}
+
+.l-4 {
+  position: absolute;
+  top: 36px;
+  left: 26px;
+  z-index: 2;
+  width: 40px;
+  height: 3px;
+  border: none;
+  background: #543363;
+}
+
+.l-5 {
+  position: absolute;
+  top: 42px;
+  left: 26px;
+  z-index: 2;
+  width: 40px;
+  height: 3px;
+  border: none;
+  background: #30345A;
+}
+
+.l-6 {
+  position: absolute;
+  top: 36px;
+  left: 207px;
+  z-index: 2;
+  width: 30px;
+  height: 3px;
+  border: none;
+  background: #543363;
+}
+
+.l-7 {
+  position: absolute;
+  top: 42px;
+  left: 207px;
+  z-index: 2;
+  width: 30px;
+  height: 3px;
+  border: none;
+  background: #30345A;
+}
+
+.l-8 {
+  position: absolute;
+  width: 100px;
+  height: 2px;
+  border: none;
+}
+
+
+#back {
+  position: absolute;
+  bottom: 0;
+  background-color: #c1bdb7;
+  animation: backAnim 5s;
+  height: 206px;
+  width: 126px;
+  border-radius: 4px 4px 35px;
+}
+
+@keyframes backAnim {
+  0% {
+    width: 8px;
+    height: 68px;
+  }
+  
+  4% {
+    width: 100px;
+    height: 75px;
+  }
+  
+  5% {
+    width: 125px;
+    height: 80px;
+    border-radius: 3px 3px 20px;
+  }
+  
+  11%, 100% {
+    height: 206px;
+    width: 125px;
+    border-radius: 3px 3px 35px;
+  }
+}
+
+#speaker {
+  position: absolute;
+  background-color: #646060;
+  animation: speakerAnim 5s;
+  width: 30px;
+  height: 30px;
+  bottom: 10px;
+  left: 82px;
+  border-radius: 15px;
+  box-shadow: inset 0 0 0 8px #484848;
+}
+
+@keyframes speakerAnim {
+  0%, 6% {
+    width: 0;
+    height: 0;
+    bottom: 22px;
+    left: 103px;
+  }
+  
+  11% {
+    width: 30px;
+    height: 30px;
+    bottom: 10px;
+    left: 82px;
+    border-radius: 15px;
+    box-shadow: inset 0 0 0 15px #484848;
+  }
+  
+  14%, 100% {
+    width: 30px;
+    height: 30px;
+    bottom: 10px;
+    left: 82px;
+    border-radius: 15px;
+    box-shadow: inset 0 0 0 8px #484848;
+  }
+}
+
+#card1 {
+  position: absolute;
+  left: 15px;
+  background-color: #5eaf89;
+  animation: card1Anim 5s;
+  height: 113px;
+  width: 95px;
+  bottom: 17px;
+}
+
+@keyframes card1Anim {
+  0%, 8% {
+    height: 0;
+    width: 0;
+    bottom: 64px;
+  }
+  
+  9% {
+    height: 17px;
+    width: 15px;
+    bottom: 64px;
+  }
+  
+  12% {
+    height: 113px;
+    width: 15px;
+    bottom: 17px;
+  }
+  
+  18%, 100% {
+    height: 113px;
+    width: 95px;
+    bottom: 17px;
+  }
+}
+
+#border {
+  position: absolute;
+  bottom: 2px;
+  right: 7px;
+  border: 2px solid #646060;
+  border-radius: 3px 3px 35px;
+  animation: borderAnim 5s;
+  height: 198px;
+  width: 118px;
+  border: 2px solid #646060;
+}
+
+@keyframes borderAnim {
+  0%, 8% {
+    height: 0;
+    width: 0;
+    border: none;
+  }
+  
+  9% {
+    height: 40px;
+    width: 10px;
+    border-right: 2px solid #646060;
+    border-bottom: 2px solid #646060;
+    border-top: none;
+    border-left: none;
+  }
+  
+  13% {
+    height: 40px;
+    width: 117px;
+    border-right: 2px solid #646060;
+    border-bottom: 2px solid #646060;
+    border-top: none;
+    border-left: none;
+  }
+  
+  17%, 100% {
+    height: 198px;
+    width: 117px;
+    border-right: 2px solid #646060;
+    border-left: 2px solid #646060;
+    border-bottom: 2px solid #646060;
+    border-top: none;
+  }
+  
+  18%, 100% {
+    height: 198px;
+    width: 117px;
+    border: 2px solid #646060;
+  }
+}
+
+#card2 {
+  position: absolute;
+  bottom: 6px;
+  left: 7px;
+  width: 10px;
+  height: 20px;
+  background-color: #646060;
+  animation: card2Anim 5s;
+  height: 20px;
+  width: 78px;
+}
+
+@keyframes card2Anim {
+  0%, 12% {
+    height: 0;
+    width: 0;
+  }
+  
+  13% {
+    height: 20px;
+    width: 10px;
+  }
+  
+  21%, 100% {
+    height: 20px;
+    width: 78px;
+  }
+}
+
+#card3 {
+  position: absolute;
+  bottom: 48px;
+  left: 8px;
+  height: 5px;
+  background-color: #3c9b66;
+  animation: card3Anim 5s;
+  height: 150px;
+  width: 110px;
+}
+
+@keyframes card3Anim {
+  0%, 12% {
+    height: 0;
+    width: 0;
+  }
+  
+  15% {
+    height: 5px;
+    width: 110px;
+  }
+  
+  23%, 100% {
+    height: 150px;
+    width: 110px;
+  }
+}
+
+#chip {
+  position: absolute;
+  background-color: #484848;
+  animation: chipAnim 5s;
+  height: 22px;
+  width: 22px;
+  bottom: 77px;
+  left: 52px;
+}
+
+@keyframes chipAnim {
+  0%, 15% {
+    height: 0;
+    width: 0;
+  }
+  
+  16% {
+    height: 4px;
+    width: 4px;
+    bottom: 86px;
+    left: 58px;
+  }
+  
+  20%, 100% {
+    height: 22px;
+    width: 22px;
+    bottom: 77px;
+    left: 52px;
+  }
+}
+
+#chip2 {
+  position: absolute;
+  background-color: #484848;
+  animation: chip2Anim 5s;
+  height: 12px;
+  width: 60px;
+  bottom: 160px;
+  left: 32px;
+}
+
+@keyframes chip2Anim {
+  0%, 16% {
+    height: 0;
+    width: 0;
+  }
+  
+  17% {
+    height: 12px;
+    width: 4px;
+    bottom: 132px;
+    left: 60px;
+  }
+  
+  23% {
+    height: 12px;
+    width: 60px;
+    bottom: 132px;
+    left: 32px;
+  }
+  
+  30%, 100% {
+    height: 12px;
+    width: 60px;
+    bottom: 160px;
+    left: 32px;
+  }
+}
+
+#volumeWheelBack {
+  position: absolute;
+  left: 108px;
+  bottom: 157px;
+  width: 10px;
+  height: 10px;
+  background-color: #645d5f;
+  animation: volumeWheelBackAnim 5s;
+  height: 10px;
+  width: 10px;
+  left: 108px;
+  bottom: 167px;
+}
+
+@keyframes volumeWheelBackAnim {
+  0%, 17% {
+    height: 0;
+    width: 0;
+    left: 113px;
+    bottom: 162px;
+  }
+  
+  21%, 25% {
+    height: 10px;
+    width: 10px;
+    left: 108px;
+    bottom: 157px;
+  }
+  
+  30%, 100% {
+    height: 10px;
+    width: 10px;
+    left: 108px;
+    bottom: 167px;
+  }
+}
+
+#volumeWheel {
+  position: absolute;
+  left: 108px;
+  bottom: 157px;
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  background-color: #b2aea9;
+  box-shadow: inset 0 0 0 5px #dddddd;
+  animation: volumeWheelAnim 5s;
+  box-shadow: inset 0 0 0 5px #dddddd;
+}
+
+@keyframes volumeWheelAnim {
+  0%, 18% {
+    height: 1px;
+    width: 1px;
+    left: 115px;
+    bottom: 159px;
+    box-shadow: inset 0 0 0 10px #dddddd;
+  }
+  
+  22% {
+    height: 16px;
+    width: 16px;
+    left: 110px;
+    bottom: 154px;
+    box-shadow: inset 0 0 0 10px #dddddd;
+  }
+  
+  25% {
+    height: 16px;
+    width: 16px;
+    left: 110px;
+    bottom: 154px;
+    box-shadow: inset 0 0 0 5px #dddddd;
+  }
+  
+  30%, 100% {
+    height: 16px;
+    width: 16px;
+    left: 110px;
+    bottom: 164px;
+    box-shadow: inset 0 0 0 5px #dddddd;
+  }
+}
+
+#chipPinL {
+  position: absolute;
+  left: 50px;
+  bottom: 94px;
+  width: 4px;
+  height: 2px;
+  background-color: #dddddd;
+  box-shadow: 0 3px #dddddd;
+  animation: chipPinAnimL 5s;
+  box-shadow: 0 3px #dddddd, 0 6px #dddddd, 0 9px #dddddd, 0 12px #dddddd, 0 15px #dddddd;
+}
+
+@keyframes chipPinAnimL {
+  0%, 19% {
+    width: 0;
+  }
+  
+  20% {
+    width: 4px;
+    box-shadow: 0 3px #dddddd;
+  }
+  
+  21% {
+    box-shadow: 0 3px #dddddd, 0 6px #dddddd, 0 9px #dddddd;
+  }
+  
+  22%, 100% {
+    box-shadow: 0 3px #dddddd, 0 6px #dddddd, 0 9px #dddddd, 0 12px #dddddd, 0 15px #dddddd;
+  }
+}
+
+#chipPinR {
+  position: absolute;
+  left: 72px;
+  bottom: 94px;
+  width: 4px;
+  height: 2px;
+  background-color: #dddddd;
+  box-shadow: 0 3px #dddddd;
+  animation: chipPinAnimR 5s;
+  box-shadow: 0 3px #dddddd, 0 6px #dddddd, 0 9px #dddddd, 0 12px #dddddd, 0 15px #dddddd;
+}
+
+@keyframes chipPinAnimR {
+  0%, 22% {
+    width: 0;
+  }
+  
+  23% {
+    width: 4px;
+    box-shadow: 0 3px #dddddd;
+  }
+  
+  24% {
+    box-shadow: 0 3px #dddddd, 0 6px #dddddd, 0 9px #dddddd;
+  }
+  
+  25%, 100% {
+    box-shadow: 0 3px #dddddd, 0 6px #dddddd, 0 9px #dddddd, 0 12px #dddddd, 0 15px #dddddd;
+  }
+}
+
+#ec1 {
+  position: absolute;
+  left: 24px;
+  bottom: 122px;
+  width: 4px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #484848;
+  animation: ec3Anim 5s;
+  box-shadow: 8px 0 #484848, 16px 0 #484848, 24px 0 #484848, 32px 0 #484848, 40px 0 #484848;
+}
+
+@keyframes ec3Anim {
+  0%, 18% {
+    width: 0;
+  }
+  
+  20% {
+    width: 4px;
+    height: 4px;
+  }
+  
+  22% {
+    box-shadow: 8px 0 #484848;
+  }
+  
+  24% {
+    box-shadow: 8px 0 #484848, 16px 0 #484848;
+  }
+  
+  26% {
+    box-shadow: 8px 0 #484848, 16px 0 #484848, 24px 0 #484848;
+  }
+  
+  28% {
+    box-shadow: 8px 0 #484848, 16px 0 #484848, 24px 0 #484848, 32px 0 #484848;
+  }
+  
+  30%, 100% {
+    box-shadow: 8px 0 #484848, 16px 0 #484848, 24px 0 #484848, 32px 0 #484848, 40px 0 #484848;
+  }
+}
+
+#joystickBack {
+  position: absolute;
+  left: 11px;
+  bottom: 47px;
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: #dddddd;
+  animation: joystickBackAnim 5s;
+}
+
+@keyframes joystickBackAnim {
+  0%, 23% {
+    left: 29px;
+    bottom: 65px;
+    width: 0;
+    height: 0;
+  }
+  
+  28%, 100% {
+    left: 11px;
+    bottom: 47px;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+#joystickCross1 {
+  position: absolute;
+  left: 14px;
+  bottom: 60px;
+  width: 30px;
+  height: 10px;
+  border-radius: 1px;
+  background-color: #484848;
+  animation: joystickCrossAnim 5s;
+  
+}
+
+#joystickCross2 {
+  position: absolute;
+  left: 14px;
+  bottom: 60px;
+  width: 30px;
+  height: 10px;
+  border-radius: 1px;
+  background-color: #484848;
+  transform: rotate(90deg);
+  animation: joystickCrossAnim 5s;
+}
+
+@keyframes joystickCrossAnim {
+  0%, 26% {
+    left: 29px;
+    bottom: 65px;
+    width: 0;
+    height: 0;
+  }
+  
+  33%, 100% {
+    left: 14px;
+    bottom: 60px;
+    width: 30px;
+    height: 10px;
+  }
+}
+
+#buttonsABBack {
+  position: absolute;
+  left: 74px;
+  bottom: 59px;
+  width: 43px;
+  height: 20px;
+  border-radius: 11px;
+  background-color: #dddddd;
+  box-shadow: inset 0 0 0 2px #a9a9a9;
+  transform: rotate(154deg);
+  animation: buttonsABBackAnim 5s;
+}
+
+@keyframes buttonsABBackAnim {
+  0%, 24% {
+    left: 95px;
+    bottom: 67px;
+    width: 0;
+    height: 0;
+    transform: rotate(220deg);
+  }
+  
+  29% {
+    left: 74px;
+    bottom: 59px;
+    width: 43px;
+    height: 20px;
+    transform: rotate(154deg);
+  }
+  
+  33%, 100% {
+    box-shadow: inset 0 0 0 2px #a9a9a9;
+  }
+}
+
+#buttonsAB {
+  position: absolute;
+  left: 78px;
+  bottom: 57px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #484848;
+  box-shadow: 20px -10px #484848;
+  animation: buttonsABAnim 5s;
+}
+
+@keyframes buttonsABAnim {
+  0%, 28% {
+    left: 81px;
+    bottom: 61px;
+    width: 0;
+    height: 0;
+    box-shadow: 20px -10px #484848;
+  }
+  
+  33%, 100% {
+    left: 78px;
+    bottom: 57px;
+    width: 14px;
+    height: 14px;
+    box-shadow: 20px -10px #484848;
+  }
+}
+
+#buttonsSSBack {
+  position: absolute;
+  background-color: #dddddd;
+  animation: buttonsSSBackAnim 5s;
+  left: 34px;
+  bottom: 28px;
+  width: 40px;
+  height: 14px;
+}
+
+@keyframes buttonsSSBackAnim {
+  0%, 27% {
+    left: 30px;
+    bottom: 26px;
+    width: 0;
+    height: 10px;
+  }
+  
+  33%, 100% {
+    left: 34px;
+    bottom: 28px;
+    width: 40px;
+    height: 14px;
+  }
+}
+
+#buttonsSS {
+  position: absolute;
+  border-radius: 2px;
+  background-color: #484848;
+  transform: rotate(153deg);
+  animation: buttonsSSAnim 5s;
+  left: 58px;
+  bottom: 33px;
+  width: 14px;
+  height: 4px;
+  box-shadow: 20px 10px #484848;
+}
+
+@keyframes buttonsSSAnim {
+  0%, 34% {
+    left: 52px;
+    bottom: 30px;
+    width: 0;
+    height: 0;
+    box-shadow: 10px 10px #484848;
+  }
+  
+  49%, 100% {
+    left: 58px;
+    bottom: 33px;
+    width: 14px;
+    height: 4px;
+    box-shadow: 20px 10px #484848;
+  }
+}
+
+#screenBack {
+  position: absolute;
+  background-color: #dddddd;
+  border-radius: 2px;
+  animation: screenBackAnim 5s;
+  left: 21px;
+  bottom: 125px;
+  width: 84px;
+  height: 64px;
+}
+
+@keyframes screenBackAnim {
+  0%, 25% {
+    left: 63px;
+    bottom: 125px;
+    width: 0;
+    height: 64px;
+  }
+  
+  31%, 100% {
+    left: 21px;
+    bottom: 125px;
+    width: 84px;
+    height: 64px;
+  }
+}
+
+#screen {
+  position: absolute;
+  background-color: #494949;
+  border-radius: 4px 4px 24px;
+  animation: screenAnim 5s;
+  left: 8px;
+  bottom: 104px;
+  width: 110px;
+  height: 84px;
+}
+
+@keyframes screenAnim {
+  0%, 28% {
+    left: 68px;
+    bottom: 131px;
+    width: 0;
+    height: 0;
+  }
+  
+  33%, 36% {
+    left: 26px;
+    bottom: 104px;
+    width: 74px;
+    height: 64px;
+  }
+  
+  40%, 42% {
+    bottom: 114px;
+    height: 64px;
+  }
+  
+  48%, 100% {
+    left: 8px;
+    bottom: 104px;
+    width: 110px;
+    height: 84px;
+  }
+}
+
+#jackBack {
+  position: absolute;
+  background-color: #646060;
+  animation: jackBackAnim 5s;
+  left: 6px;
+  bottom: 138px;
+  width: 12px;
+  height: 12px;
+}
+
+@keyframes jackBackAnim {
+  0%, 21% {
+    left: 11px;
+    bottom: 136px;
+    width: 0;
+    height: 0;
+  }
+  
+  25%, 31% {
+    left: 6px;
+    bottom: 132px;
+    width: 12px;
+    height: 12px;
+  }
+  
+  36%, 100% {
+    left: 6px;
+    bottom: 138px;
+    width: 12px;
+    height: 12px;
+  }
+}
+
+#jack {
+  position: absolute;
+  background-color: #494949;
+  border-radius: 7px;
+  animation: jackAnim 5s;
+  left: 1px;
+  bottom: 137px;
+  width: 14px;
+  height: 14px;
+}
+
+@keyframes jackAnim {
+  0%, 23% {
+    left: 6px;
+    bottom: 135px;
+    width: 0;
+    height: 0;
+  }
+  
+  27%, 31% {
+    left: 1px;
+    bottom: 131px;
+    width: 14px;
+    height: 14px;
+  }
+  
+  36%, 100% {
+    left: 1px;
+    bottom: 137px;
+    width: 14px;
+    height: 14px;
+  }
+}
+
+#screen2 {
+  position: absolute;
+  background-color: #b7b28f;
+  border-radius: 2px;
+  animation: screen2Anim 5s;
+  left: 28px;
+  bottom: 110px;
+  width: 74px;
+  height: 68px;
+}
+
+@keyframes screen2Anim {
+  0%, 44% {
+    left: 59px;
+    bottom: 151px;
+    width: 0;
+    height: 0;
+  }
+  
+  48% {
+    bottom: 146px;
+    width: 10px;
+    height: 10px;
+  }
+  
+  52% {
+    left: 28px;
+    bottom: 146px;
+    width: 70px;
+    height: 10px;
+  }
+  
+  60%, 100% {
+    left: 28px;
+    bottom: 110px;
+    width: 74px;
+    height: 68px;
+  }
+}
+
+#box {
+  position: absolute;
+  background-color: #BEC2C1;
+  border-radius: 3px 3px 35px;
+  height: 206px;
+  width: 125px;
+  bottom: 0;
+  animation: boxAnim 5s;
+  height: 206px;
+  width: 125px;
+  bottom: 0;
+  opacity: 0;
+}
+
+@keyframes boxAnim {
+  0%, 67% {
+    height: 0;
+    width: 125px;
+    bottom: 206px;
+    opacity: 1;
+  }
+  
+  80%, 99% {
+    height: 206px;
+    width: 125px;
+    bottom: 0;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+#powerBack {
+  position: absolute;
+  background-color: #494949;
+  width: 15px;
+  height: 9px;
+  left: 10px;
+  bottom: 197px;
+  animation: powerBackAnim 5s;
+}
+
+@keyframes powerBackAnim {
+  0%, 23% {
+    height: 0;
+  }
+  
+  30%, 100% {
+    height: 9px;
+  }
+}
+
+#power {
+  position: absolute;
+  background-color: #494949;
+  border-radius: 4px 4px 0 0 / 2px 2px 0 0;
+  width: 8px;
+  height: 6px;
+  animation: powerAnim 5s;
+  left: 15px;
+  bottom: 202px;
+}
+
+@keyframes powerAnim {
+  0%, 42% {
+    visibility: hidden;
+    left: 12px;
+    bottom: 197px;
+  }
+  
+  43% {
+    visibility: yes;
+    left: 12px;
+    bottom: 197px;
+  }
+  
+  46%, 90% {
+    left: 12px;
+    bottom: 202px;
+  }
+  
+  92%, 100% {
+    left: 15px;
+    bottom: 202px;
+  }
+}
+
+#powerLed {
+  position: absolute;
+  background-color: #ddd;
+  border-radius: 2px;
+  animation: powerLedAnim 5s;
+  background-color: red;
+  width: 5px;
+  height: 5px;
+  left: 13.5px;
+  bottom: 154.5px;
+}
+
+@keyframes powerLedAnim {
+  0%, 49% {
+    width: 0;
+    height: 0;
+    left: 16px;
+    bottom: 156px;
+  }
+  
+  52%, 91% {
+    background-color: #444;
+    width: 5px;
+    height: 5px;
+    left: 14px;
+    bottom: 154px;
+  }
+  
+  92%, 100% {
+    background-color: #E4B443;
+    width: 5px;
+    height: 5px;
+    left: 14px;
+    bottom: 154px;
+  }
+}
+
+#speakerFilter {
+  position: absolute;
+  background-color: #555;
+  border-radius: 2px;
+  width: 4px;
+  height: 4px;
+  left: 84px;
+  bottom: 22px;
+  box-shadow: 3px -3px #555, 6px -6px #555, 9px -9px #555, 0 6px #555,3px 3px #555, 6px 0 #555, 9px -3px #555, 12px -6px #555, 15px -9px #555, 3px 9px #555, 6px 6px #555, 9px 3px #555, 12px 0 #555, 15px -3px #555, 18px -6px #555, 9px 9px #555, 12px 6px #555, 15px 3px #555, 18px 0 #555;
+  animation: speakerFilterAnim 5s;
+  visibility: yes;
+}
+
+@keyframes speakerFilterAnim {
+  0%, 75% {
+    visibility: hidden;
+  }
+  
+  76%, 100% {
+    visibility: yes;
+  }
+}

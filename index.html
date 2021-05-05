@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Schoolgrounds By Students For Students</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="bootstrap/bootstrap.bundle.min.js"></script>
+    <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="default.css" media="screen" />
+
+    <!--Favicon Information-->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png?v=2bAXkRLXOR">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png?v=2bAXkRLXOR">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-chrome-192x192.png?v=2bAXkRLXOR">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png?v=2bAXkRLXOR">
+    <link rel="manifest" href="favicon/site.webmanifest?v=2bAXkRLXOR">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg?v=2bAXkRLXOR" color="#bd8b40">
+    <link rel="shortcut icon" href="favicon/favicon.ico?v=2bAXkRLXOR">
+    <meta name="msapplication-TileColor" content="#da9835">
+    <meta name="msapplication-TileImage" content="favicon/mstile-144x144.png?v=2bAXkRLXOR">
+    <meta name="msapplication-config" content="favicon/browserconfig.xml?v=2bAXkRLXOR">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Schoolgrounds ">
+    <meta name="description" content="By Students For Students">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Schoolgrounds">
+    <meta property="og:description" content="By Students For Students">
+    <meta property="og:image" content="https://schoolgroundshtml.tk/images/low_logo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Schoolgrounds">
+    <meta property="twitter:description" content="By Students For Students">
+    <meta property="twitter:image" content="https://schoolgroundshtml.tk/images/low_logo.png">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-740LNY4LDH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-740LNY4LDH');
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark" aria-label="Fourth navbar example">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Schoolgrounds</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExample04">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">Games</a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdown">
+                            <li><a class="dropdown-item" href="games/">Games</a></li>
+                            <li><a class="dropdown-item" href="other/flashgames/">Flash Games</a></li>
+                            <li><a class="dropdown-item" href="other/retro/">Retro</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="other/gameofweek/">Game Of The Week</a></li>
+                    <li class="nav-item"><a class="nav-link" href="other/links/">Links</a></li>
+                    <li class="nav-item"><a class="nav-link" href="other/theportal/">The Portal</a></li>
+                    <li class="nav-item"><a class="nav-link" href="videos/">Videos</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+
+                <a class="home" href="#">
+                    <h1>Schoolgrounds</h1>
+                </a>
+
+                <h2>By Students For Students</h2>
+
+                <div class="search-container">
+                    <input type="text" id="gameFinder" onkeyup="gameFinder()" placeholder="Search for Stuff" title="Type in something">
+                    <script>
+                        function gameFinder() {
+                            var input, filter, ul, li, a, i, txtValue;
+                            input = document.getElementById("gameFinder");
+                            filter = input.value.toUpperCase();
+                            ul = document.getElementById("Games");
+                            li = ul.getElementsByTagName("li");
+                            for (i = 0; i < li.length; i++) {
+                                a = li[i].getElementsByTagName("a")[0];
+                                txtValue = a.textContent || a.innerText;
+                                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                    li[i].style.display = "";
+                                } else {
+                                    li[i].style.display = "none";
+                                }
+                            }
+                        }
+                    </script>
+                </div>
+
+                <h2 class="pixel">Cool News:</h2>
+                <p>Added <a href="videos">Videos</a></p>
+                <p>Added pokemon flash -yeetedmeme</p>
+                <p>Added Proxys and unblocked section, personaly maintained by me. -yeetedmeme</p>
+                <p>Added a kahoot flooder lol. -Ayden</p>
+                <p>Welp, I guess I helping now -PiSaucer</p>
+                <h2 class="comic">Not So Cool News:</h2>
+                <p>https://schoolground.tk got blocked at my school -Ducc</p>
+                <p>Highlighter betrayed us an is now a simp -literally every person in the dang world (besides highlighters gf)</p>
+
+                <div class="Games" id="Games">
+                    <h2 class="pixel">Game Series:</h2>
+                    <ul class="pixel">
+                        <li><a href="games/achievement_unlocked_games/" class="pixel">Achievement Unlocked Games</a></li>
+                        <li><a href="games/RiddleSchool/" class="pixel">Riddle School Games</a></li>
+                        <li><a href="games/DuckLife/" class="pixel">Duck Life Games (The Ducc's Favorite Games)</a></li>
+                    </ul>
+
+                    <h2 class="pixel">Schoolgrounds Top 5 Games</h2>
+                    <ol>
+                        <li><a href="games/mari0/" class="pixel">Mari0 - Mario With A Portal Gun</a></li>
+                        <li><a href="games/RiddleSchool/RiddleSchool1/" class="pixel">Riddle School 1</a></li>
+                        <li><a href="games/sm63/" class="pixel">Super Mario 63</a></li>
+                        <li><a href="games/cookieclicker/" class="pixel">Cookie Clicker</a></li>
+                        <li><a href="games/btd/" class="pixel">Bloons Tower Defense</a></li>
+                    </ol>
+
+                    <h2 class="pixel">Brand Spankin' New Games:</h2>
+                    <ul>
+                        <li><a href="games/pokemon/" class="pixel">Pokemon Flash</a></li>
+                        <li><a href="games/WorldHardestGame/" class="pixel">World's Hardest Game</a></li>
+                        <li><a href="games/RiddleSchool/" class="pixel">Riddle School Games</a></li>
+                        <li><a href="games/gdash/" class="pixel">Geometry Dash</a></li>
+                        <li><a href="games/desktoptd/" class="pixel">Desktop Tower Defense</a></li> 
+                        <li><a href="/games/mtd2/" class="pixel">Minecraft Tower Defense                    
+                            
+                    </ul>
+
+                    <h2 class="pixel">Other:</h2>
+                    <ul>
+                        <li><a href="games/mari0/" class="pixel">Mari0 - Mario With A Portal Gun</a></li>
+                        <li><a href="games/thereisnogame/" class="pixel">There Is No Game</a></li>
+                        <li><a href="games/2048/" class="pixel">2048</a></li>
+                        <li><a href="games/cookieclicker/" class="pixel">Cookie Clicker</a></li>
+                        <li><a href="games/mcclone1/" class="pixel">Bad Minecraft</a></li>
+                        <li><a href="games/solitude/" class="pixel">Solitude</a></li>
+                        <li><a href="games/minesweeper/" class="pixel">Minesweeper</a></li>
+                        <li><a href="games/minecraftjs/" class="pixel">Minecraft JS Edition</a></li>
+                        <li><a href="games/gdash/" class="pixel">Geometry Dash</a></li>
+                        <li><a href="games/xx142-b2exe/" class="pixel">XX142-B2EXE</a></li>
+                        <li><a href="games/marioclone/" class="pixel">SMB1 CLONE</a></li>
+                        <li><a href="games/sansfight/" class="pixel">Sans Fight</a></li>
+                        <li><a href="videos" class="pixel">Videos</a></li>
+                    </ul>
+
+                    <h2 class="pixel">Other Unblocked sites:</h2>
+                    <ul>
+                        <li><a href="https://pisaucer.github.io/boredhtml/" class="pixel">BoredHTML</a></li>
+                        <li><a href="https://unblocked-games.s3.amazonaws.com/" class="pixel">Unblocked Games FreezeNova</a></li>
+                        <li><a href="https://coolmathgames.com" class="pixel">Cool Math Games</a></li>
+                        <li><a href="https://sm64js.com" class="pixel">SM64JS</a></li>
+                    </ul>
+                    <h2 class="pixel">People:</h2>
+                    <ul>
+                        <li><a href="other/people/decotron99/" class="pixel">Decotron99</a></li>
+                        <li><a href="https://github.com/Aydeniguess" class="pixel">Aydeniguess</a></li>
+                        <li><a href="other/people/pisaucer/" class="pixel">PiSaucer</a></li>
+                        <li><a href="/other/people/yeetedmeme/" class="pixel">yeetedmeme</a></li>
+                    </ul>
+                </div>
+
+                <footer>
+                    <p>this is really important... and I don't have much time to say this but. MONKE FUNNY</p>
+                    <p>*May Not Work At all schools</p>
+                    <p>I own none of these games this is so students can play stuff unblocked at school :)</p>
+                    <a href="other/changelog/">Changelog</a>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
+
+    <script>
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyBqaFSItGE1aCOScL4hOBXt5vZnWcdLi2A",
+            authDomain: "schoolgrounds.firebaseapp.com",
+            projectId: "schoolgrounds",
+            storageBucket: "schoolgrounds.appspot.com",
+            messagingSenderId: "478852946755",
+            appId: "1:478852946755:web:9c7c19c9c9c8dd5936edf6",
+            measurementId: "G-Z34KFW4520"
+        };
+    </script>
+</body>
+
+</html>

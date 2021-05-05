@@ -1,0 +1,143 @@
+
+/* The navigation bar */
+
+.nav {
+    background-color: #333;
+    /*
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    */
+}
+
+
+/* Links inside the navbar */
+
+.nav a {
+    display: block;
+    /*color: #f2f2f2;*/
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+
+/* Change background on mouse-over */
+
+
+/*
+.navbar a:hover {
+    background: #ddd;
+    color: black;
+}*/
+
+
+/* Main content */
+
+.main {
+    margin-top: 30px;
+    /* Add a top margin to avoid content overlay */
+}
+
+
+/* Main content */
+
+.main {
+    margin-top: 30px;
+    /* Add a top margin to avoid content overlay */
+}
+
+.container {
+    background-color: Orange;
+    margin-bottom: 30px;
+    margin-top: 25px;
+    border-radius: 25px;
+}
+
+.col {
+    margin-bottom: 20px;
+}
+
+body {
+    background: url("images/skin-funkin-cardbordtoast.png");
+    background-color: #333;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+h1 {
+    color: black;
+}
+
+a.home:visited,
+a.home:active,
+a.home:hover,
+a.home {
+    text-decoration-color: black;
+}
+
+.comic {
+    font-family: Cursive;
+    color: magenta;
+}
+
+.pixel {
+    font-family: 'pixel';
+    color: black;
+}
+
+.sad {
+    color: red;
+}
+
+.yeeted {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+a:link {
+    text-decoration: none
+}
+
+a:hover {
+    text-decoration: underline
+}
+
+embed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@font-face {
+    font-family: "pixel";
+    src: url("fonts/minecraft-webfont.woff2");
+    src: url("fonts/minecraft-webfont.woff") format("woff"),
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+#gameFinder {
+    background-image: url('searchicon.png');
+    background-position: 10px 12px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+}
+
+.search-container {
+    margin-right: 50px;
+}
+
+ruffle-embed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#canvas {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
