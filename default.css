@@ -111,8 +111,8 @@ embed {
 
 @font-face {
     font-family: "pixel";
-    src: url("fonts/minecraft-webfont.woff2");
-    src: url("fonts/minecraft-webfont.woff") format("woff"),
+    src: url("https://cdn.schgnd.ml/fonts/minecraft-webfont.woff2");
+    src: url("https://cdn.schgnd.ml/fonts/minecraft-webfont.woff") format("woff"),
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
