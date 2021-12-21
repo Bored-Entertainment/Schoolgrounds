@@ -100,72 +100,72 @@
             //Games
             //dosbox/?soft=
             OREGON: {
-                file: 'OREGON.zip',
+                file: 'https://cdn.schgnd.ml/dosbox/softs/OREGON.zip',
                 cmd: 'OREGON/OREGON.exe',
                 pointer: true
             },
             MTT: {
-                file: 'MTT.zip',
+                file: 'https://cdn.schgnd.ml/dosbox/softs/MTT.zip',
                 cmd: 'MARIOTT/MARIO.EXE',
                 pointer: true
             },
             DK: {
-                file: 'DK.zip',
+                file: 'https://cdn.schgnd.ml/dosbox/softs/DK.zip',
                 cmd: 'Donkey~1/DK.EXE',
                 pointer: true
             },
             MB: {
-                file: 'MB.zip',
+                file: 'https://cdn.schgnd.ml/dosbox/softs/MB.zip',
                 cmd: 'mario.exe',
                 pointer: true
             },
             MGG: {
-                file: 'MGG.zip',
+                file: 'https://cdn.schgnd.ml/dosbox/softs/MGG.zip',
                 cmd: 'Mariog~1/mario.exe',
                 pointer: true
             },
             TTE: {
-                file: 'TTE.zip',
+                file: 'https://cdn.schgnd.ml/dosbox/softs/TTE.zip',
                 cmd: 'Thomasth/TOM.EXE',
                 pointer: true
             },
             KQ1: {
-                file: 'KQ1.zip',
+                file: 'https://cdn.schgnd.ml/dosbox/softs/KQ1.zip',
                 cmd: 'KQ1NEW/SCIV.EXE',
                 pointer: true
             },
             DOOM: {
-                file: 'DOOM.zip',
+                file: 'https://cdn.schgnd.ml/dosbox/softs/DOOM.zip',
                 cmd: 'DOOM/DOOM.EXE',
                 pointer: true
             },
             DOOM2: {
-                file: 'DOOM2.zip',
+                file: 'https://cdn.schgnd.ml/dosbox/softs/DOOM2.zip',
                 cmd: 'DOOM2/DOOM2.EXE',
                 pointer: true
             },
             WOLF3D: {
-                file: 'WOLF3D.zip',
+                file: 'https://cdn.schgnd.ml/dosbox/softs/WOLF3D.zip',
                 cmd: 'WOLF3D/WOLF3D.EXE',
                 pointer: true
             },
             DUKE3D: {
-                file: 'DUKE3D.zip',
+                file: 'https://cdn.schgnd.ml/dosbox/softs/DUKE3D.zip',
                 cmd: './DUKE3D.EXE',
                 pointer: true
             },
             QUAKE: {
-                file: 'QUAKE.zip',
+                file: 'https://cdn.schgnd.ml/dosbox/softs/QUAKE.zip',
                 cmd: 'QUAKE/QUAKE.EXE',
                 pointer: true
             },
             DAGLITE: {
-                file: 'DAGLITE.zip',
+                file: 'https://cdn.schgnd.ml/dosbox/softs/DAGLITE.zip',
                 cmd: 'DAGLITE/DAGDEMO.EXE',
                 pointer: true
             },
             WAR1: {
-                file: 'WAR1.zip',
+                file: 'https://cdn.schgnd.ml/dosbox/softs/WAR1.zip',
                 cmd: 'WAR.EXE',
                 pointer: true
             }
@@ -187,7 +187,8 @@
                     DosBoxLoader.locateAdditionalEmulatorJS(locateAdditionalFiles),
                     DosBoxLoader.nativeResolution(640, 400),
                     DosBoxLoader.mountZip("c",
-                        DosBoxLoader.fetchFile("Software", "softs/" + softs[file].file)),
+                        //DosBoxLoader.fetchFile("Software", "softs/" + softs[file].file)),
+                        DosBoxLoader.fetchFile("Software", softs[file].file)),
                     DosBoxLoader.startExe(softs[file].cmd)));
             dosbox.start({
                 waitAfterDownloading: false
@@ -236,10 +237,6 @@
             c = document.getElementById("canvas")
             c.style.cursor = "none"
         };
-
-        $(document).ready(function() {
-            // needed?
-        });
     </script>
 </body>
 
