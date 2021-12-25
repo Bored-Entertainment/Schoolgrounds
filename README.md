@@ -1,9 +1,12 @@
+<img align="left" src="images/logo.png" alt="logo" height="42" width="42">
+
 # Schoolgrounds
 ## By Students For Students
 
-![cdn](https://badges.schgnd.ml/school/month.svg)
+![cdn](https://badges.schgnd.ml/school/month.svg) 
+![lines of code](https://badges.schgnd.ml/school/loc.svg)
 
-You like [Newgrounds](https://newgrounds.com) and [Bored In School Right Now](https://pisaucer.github.io/boredhtml)
+You like [Newgrounds](https://newgrounds.com/) and [Bored In School Right Now](https://boredht.ml/)
 
 You like flash and HTML games
 
@@ -24,12 +27,13 @@ Sadly not all of the flash games will run properly right now hopefully that will
 # Stuff I am using
 - [GitHub](https://github.com) 
 - [Ruffle](https://ruffle.rs)
+- [Bootstrap](https://getbootstrap.com)
 
 # Check these mans out:
 - [Decotron99](https://github.com/Decotron99)
 - [Aydeniguess](https://github.com/Aydeniguess)
 - [PiSauser](https://github.com/PiSauser)
-- [yeetedmeme](https://github.com/yeetedmeme)
+- [greymesa](https://github.com/greymesa)
 yeet
 
 ```txt
