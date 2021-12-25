@@ -1,5 +1,3 @@
-<img align="left" src="images/logo.png" alt="logo" height="42" width="42">
-
 # Schoolgrounds
 ## By Students For Students
 
@@ -16,6 +14,7 @@ Put 'em all together, and BOOM you got schoolgrounds
 
 ## Sites
 - [schoolgroundshtml.tk](https://schoolgroundshtml.tk/)
+- [schgnd.ml](https://schgnd.ml)
 - [schoolground.ml](https://schoolground.ml/)
 - [schoolground.tk](https://schoolground.tk/)
 - [schoolgrounds.web.app](https://schoolgrounds.web.app/)
