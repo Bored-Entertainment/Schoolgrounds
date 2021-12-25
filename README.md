@@ -2,6 +2,7 @@
 ## By Students For Students
 
 [![CodeFactor](https://www.codefactor.io/repository/github/bored-entertainment/schoolgrounds/badge)](https://www.codefactor.io/repository/github/bored-entertainment/schoolgrounds)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/30b7879983d14e6dacce994ad4c151c0)](https://www.codacy.com/gh/Bored-Entertainment/Schoolgrounds/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Bored-Entertainment/Schoolgrounds&amp;utm_campaign=Badge_Grade)
 ![cdn](https://badges.schgnd.ml/school/month.svg) 
 ![lines of code](https://badges.schgnd.ml/school/loc.svg)
 
