@@ -1,6 +1,7 @@
 # Schoolgrounds
 ## By Students For Students
 
+[![CodeFactor](https://www.codefactor.io/repository/github/bored-entertainment/schoolgrounds/badge)](https://www.codefactor.io/repository/github/bored-entertainment/schoolgrounds)
 ![cdn](https://badges.schgnd.ml/school/month.svg) 
 ![lines of code](https://badges.schgnd.ml/school/loc.svg)
 
