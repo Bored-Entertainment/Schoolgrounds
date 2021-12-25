@@ -1,5 +1,8 @@
 # Schoolgrounds
 ## By Students For Students
+
+![cdn](https://badges.schgnd.ml/school/month.svg)
+
 You like [Newgrounds](https://newgrounds.com) and [Bored In School Right Now](https://pisaucer.github.io/boredhtml)
 
 You like flash and HTML games
