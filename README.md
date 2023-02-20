@@ -15,16 +15,17 @@ Do you HATE school?
 
 Put 'em all together, and BOOM you got schoolgrounds
 
-## Sites
+## Sites*
 - [schoolgroundshtml.tk](https://schoolgroundshtml.tk/)
 - [schgnd.ml](https://schgnd.ml)
 - [schoolground.ml](https://schoolground.ml/)
 - [schoolground.tk](https://schoolground.tk/)
 - [schoolgrounds.web.app](https://schoolgrounds.web.app/)
 - [schoolgrounds.firebaseapp.com](https://schoolgrounds.firebaseapp.com/)
+  *some domains are broken rn
 
 # Info
-Sadly not all of the flash games will run properly right now hopefully that will get fixed, but until, then they will glitch a lot :(
+Some flash games aren't working, so uh yeah.
 
 # Stuff I am using
 - [GitHub](https://github.com) 
@@ -32,8 +33,8 @@ Sadly not all of the flash games will run properly right now hopefully that will
 - [Bootstrap](https://getbootstrap.com)
 
 # Check these mans out:
-- [Decotron99](https://github.com/Decotron99)
-- [Aydeniguess](https://github.com/Aydeniguess)
+- [Ducky Daddy](https://github.com/Decotron99)
+- [sugarcookiesoda](https://github.com/sugarcookiesoda)
 - [PiSauser](https://github.com/PiSauser)
 - [greymesa](https://github.com/greymesa)
 yeet
