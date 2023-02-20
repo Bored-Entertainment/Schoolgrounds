@@ -7,9 +7,9 @@
 ![cdn](https://badges.schgnd.ml/school/month.svg) 
 ![lines of code](https://badges.schgnd.ml/school/loc.svg)
 
-You like [Newgrounds](https://newgrounds.com/) and [Bored In School Right Now](https://boredht.ml/)
+Do You like [Newgrounds](https://newgrounds.com/) and [Bored In School Right Now](https://boredht.ml/)
 
-You like flash and HTML games
+Do You like flash and HTML games
 
 Do you HATE school?
 
