@@ -15,11 +15,7 @@ Do you HATE school?
 
 Put 'em all together, and BOOM you got schoolgrounds
 
-## Sites*
-- [schoolgroundshtml.tk](https://schoolgroundshtml.tk/)
-- [schgnd.ml](https://schgnd.ml)
-- [schoolground.ml](https://schoolground.ml/)
-- [schoolground.tk](https://schoolground.tk/)
+## Sites
 - [schoolgrounds.web.app](https://schoolgrounds.web.app/)
 - [schoolgrounds.firebaseapp.com](https://schoolgrounds.firebaseapp.com/)
   *some domains are broken rn
@@ -33,7 +29,7 @@ Some flash games aren't working, so uh yeah.
 - [Bootstrap](https://getbootstrap.com)
 
 # Check these mans out:
-- [Ducky Daddy](https://github.com/Decotron99)
+- [Ducky Daddy](https://github.com/The-Ducks-Code)
 - [sugarcookiesoda](https://github.com/sugarcookiesoda)
 - [PiSauser](https://github.com/PiSauser)
 - [greymesa](https://github.com/greymesa)
