@@ -16,9 +16,8 @@ Do you HATE school?
 Put 'em all together, and BOOM you got schoolgrounds
 
 ## Sites
-- [schoolgrounds.web.app](https://schoolgrounds.web.app/)
-- [schoolgrounds.firebaseapp.com](https://schoolgrounds.firebaseapp.com/)
-  *some domains are broken rn
+- [https://bored-entertainment.github.io/Schoolgrounds/](https://bored-entertainment.github.io/Schoolgrounds/)
+
 
 # Info
 Some flash games aren't working, so uh yeah.
@@ -33,6 +32,8 @@ Some flash games aren't working, so uh yeah.
 - [sugarcookiesoda](https://github.com/sugarcookiesoda)
 - [PiSauser](https://github.com/PiSauser)
 - [greymesa](https://github.com/greymesa)
+- [slash](https://github.com/amhooman)
+
 yeet
 
 ```txt
